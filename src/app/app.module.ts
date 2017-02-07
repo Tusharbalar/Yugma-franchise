@@ -3,7 +3,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { closeRequestPage } from '../pages/close-request/request';
 import { AllRequestPage } from '../pages/all-request/request';
-import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
 import { AuthService } from '../service/auth.service';
@@ -33,7 +32,6 @@ import { ForgotPasswordModal } from '../pages/login/forgotPassword';
     MyApp,
     closeRequestPage,
     AllRequestPage,
-    TabsPage,
     LoginPage,
     ListView,
     CustomNavbar,
@@ -56,7 +54,6 @@ import { ForgotPasswordModal } from '../pages/login/forgotPassword';
     MyApp,
     closeRequestPage,
     AllRequestPage,
-    TabsPage,
     LoginPage,
     ListView,
     CustomNavbar,

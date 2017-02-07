@@ -40,11 +40,9 @@ export class LoginPage {
     }
     this.presentLoadingDefault('Authenticating...');
     this.authService.verifyUser(data).subscribe(response => {
-      console.log("QQQQQQ", response)
-      this.authService.info(response).subscribe((res) => {
-        console.log("response from user info", res);
-        this.authService.storeData(res);
-        this.navCtrl.setRoot(AllRequestPage);  // Set homepage to root
+      this.authService.info().subscribe((res) => {
+        // this.authService.storeData(res);
+        // this.navCtrl.setRoot(AllRequestPage);  // Set homepage to root
         this.loading.dismiss();
         this.successToast();
         this.setNotificationToken();
@@ -87,19 +85,54 @@ export class LoginPage {
   }
 
   setNotificationToken() {
-    let confirmAlert = this.alertCtrl.create({
-      title: 'Would you like to receive notification ?',
-      message: "",
-      buttons: [{
-        text: 'NO',
-        role: 'cancel'
-      }, {
-        text: 'YES',
-        handler: () => {
-        }
-      }]
+    let push = Push.init({
+      android: {
+        senderID: "562555006958"
+      },
+      ios: {
+        alert: "true",
+        badge: "true",
+        sound: "true"
+      },
+      windows: {}
     });
-    confirmAlert.present();
+
+    push.on('registration', (data) => {
+      let tokenId = data.registrationId;
+      this.configuration.tokenUpdate(tokenId).subscribe((res) => {
+        this.errorToast("Success notificaiton");
+      }, (err) => {
+        this.errorToast("Failed to update notification setting... try again later");
+      });
+    });
+
+    push.on('notification', (data) => {
+      let self = this;
+      //if user using app and push notification comes
+      if (data.additionalData.foreground) {
+        // if application open, show popup
+        let confirmAlert = this.alertCtrl.create({
+          title: 'New Notification',
+          message: data.message,
+          buttons: [{
+            text: 'Ignore',
+            role: 'cancel'
+          }, {
+            text: 'View',
+            handler: () => {
+              self.navCtrl.setRoot(AllRequestPage);
+            }
+          }]
+        });
+        confirmAlert.present();
+      } else {
+        self.navCtrl.setRoot(AllRequestPage);
+      }
+    });
+
+    push.on('error', (e) => {
+      console.log("error---------------------------------------");
+    });
   }
 
   openModal() {

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { ToastController, Events } from 'ionic-angular';
 
-import { RequestService } from './request.service';
-
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from './app.constants';
 
@@ -22,7 +20,6 @@ export class AuthService {
   constructor(private _http : Http,
               private toastCtrl: ToastController,
               public events: Events,
-              public c: RequestService,
               private _configuration: Configuration) {
     this.serverUrl = _configuration.Server;
   }
@@ -79,14 +76,6 @@ export class AuthService {
       return res.json();
     }).catch((error: any) => Observable.throw(error || 'server error'));
 
-  }
-
-  getCategories() {
-    let id = localStorage.getItem("id");
-    this.options = this._configuration.setAccessToken();
-    this._http.get("https://yugmatesting01.appspot.com/franchise/" + id +"/request/category", this.options).map((res: Response) => {
-      localStorage.setItem("categories", JSON.stringify(res.json()));
-    }).catch((error: any) => Observable.throw(error || 'server error'));
   }
 
   public storeData(data) {

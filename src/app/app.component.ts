@@ -48,7 +48,6 @@ export class MyApp {
     this.events.subscribe('user:login', () => {
       console.log("Login successfully");
       this._configuration.setAccessToken();
-      this.authService.getCategories();
       this.nav.setRoot(AllRequestPage);
     });
     this.events.subscribe('user:logout', () => {

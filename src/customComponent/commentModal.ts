@@ -10,7 +10,17 @@ import { CustomService } from '../service/customService';
   selector: 'comment',
   template: `
     <ion-header>
-      <nl-modal-navbar [title]="title" [complaint]="complaint"></nl-modal-navbar>
+      <ion-toolbar color="primary">
+        <ion-buttons start>
+          <button ion-button color="light" class="navBtnRight" (click)="dismiss()">
+            <span color="light" showWhen="ios">Cancel</span>
+            <ion-icon color="light" name="md-close" showWhen="android,windows"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>
+          COMMENT
+        </ion-title>
+      </ion-toolbar>
     </ion-header>
     <ion-content id="chat" class="csChatBox" >
       <ion-list class="no-comment" *ngIf="emptyComments">

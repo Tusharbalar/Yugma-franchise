@@ -34,7 +34,7 @@ export class ViewComponent extends EditComplaintStatusAndComment implements OnIn
   }
 
   dismiss() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(this.complaint);
   }
 
 }

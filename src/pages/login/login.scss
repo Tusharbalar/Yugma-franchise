@@ -5,6 +5,7 @@
 
 .letter-space {
   .text-input {
+    @extend .csFontColor1;
     letter-spacing: 7px;
   }
   font-weight: 600;
@@ -12,11 +13,11 @@
 
 $light: #f4f4f4;
 .csGrayBackground {
-  background-color: $light;
+  background-color: $color1;
 }
 
 .csLoginScreen {
-  border: #f4f4f4 10px solid;
+  border: #e3e3e3 10px solid;
   border-bottom: #f4f4f4 55px solid;
   border-top:none;
 }
@@ -42,3 +43,6 @@ $light: #f4f4f4;
   @extend .csBottom;
   @extend .csCenter;
 }
+
+
+//----

@@ -1,16 +1,16 @@
 <ion-content class="login-screen csLoginScreen">
   <form (ngSubmit)="login()" novalidate>
     <ion-list class="letter-space">
-      <img src="../../assets/images/school-logo.png" class="csLogo">
+      <img src="../../assets/images/logo.png" class="csLogo">
       <ion-item>
-        <ion-icon name="person" color="schoolBlue" item-left></ion-icon>
+        <ion-icon name="person" color="primary" item-left></ion-icon>
         <ion-label stacked>Username</ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="username" class="csInput"></ion-input>
+        <ion-input type="text" name="username" [(ngModel)]="username" class="csFontColor1 csBold" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-icon name="md-unlock" color="schoolBlue" item-left></ion-icon>
+        <ion-icon name="md-unlock" color="primary" item-left></ion-icon>
         <ion-label stacked>Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="password" class="csInput"></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="password" class="csFontColor1 csBold" ></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button full type="submit">Login</button>

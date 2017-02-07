@@ -9,6 +9,7 @@ import { AllRequestPage } from '../pages/all-request/request';
 import { LoginPage } from '../pages/login/login';
 
 import { AuthService } from '../service/auth.service';
+import { NetworkService } from '../service/app.networkDiagnosis';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,10 +18,10 @@ export class MyApp {
   rootPage;
 
   constructor(platform: Platform,
+              public networkService: NetworkService,
               public authService: AuthService) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      this.networkService.checkNetworkStatus();
       StatusBar.styleDefault();
       Splashscreen.hide();
     });

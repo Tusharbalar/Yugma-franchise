@@ -25,6 +25,7 @@ import { CommentModal } from '../customComponent/commentModal.ts';
 import { ModalNavbarComponent } from '../customComponent/modal.navbar.component';
 import { ParentInfo } from '../service/parentInfo';
 
+import { NetworkService } from '../service/app.networkDiagnosis';
 import { ForgotPasswordModal } from '../pages/login/forgotPassword';
 
 @NgModule({
@@ -69,6 +70,6 @@ import { ForgotPasswordModal } from '../pages/login/forgotPassword';
     ViewComponent,
     ForgotPasswordModal
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, Configuration, RequestService, CustomService, ParentInfo]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, Configuration, RequestService, CustomService, ParentInfo, NetworkService]
 })
 export class AppModule {}

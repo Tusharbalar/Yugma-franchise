@@ -12,7 +12,7 @@ export class Configuration {
   headers;
   options;
 
-  getHeader() {
+  setAccessToken() {
     this.headers = new Headers({
       'Content-Type' : 'application/json',
       'Authorization' : 'Bearer ' + localStorage.getItem("access_token")
@@ -20,7 +20,12 @@ export class Configuration {
     this.options = new RequestOptions({
       headers : this.headers
     });
-    this.getUserId();
+    this.userId = localStorage.getItem("id");
+    return this.options;
+  }
+
+  getHeader() {
+    return this.options;
   }
 
   header() {
@@ -65,13 +70,7 @@ export class Configuration {
     const notificationToken = {
       notificationToken: tokenId
     }
-    this.headers = new Headers({
-      'Content-Type' : 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("access_token")
-    });
-    this.options = new RequestOptions({
-      headers : this.header()
-    });
+    this.setAccessToken();
     return this.http.put(this.Server + "/franchise/" + this.getParentId(), notificationToken, this.options).map((res: Response) => {
       return res;
     }).catch((error: any) => Observable.throw(error || 'server error'));

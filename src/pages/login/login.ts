@@ -41,8 +41,6 @@ export class LoginPage {
     this.presentLoadingDefault('Authenticating...');
     this.authService.verifyUser(data).subscribe(response => {
       this.authService.info().subscribe((res) => {
-        // this.authService.storeData(res);
-        // this.navCtrl.setRoot(AllRequestPage);  // Set homepage to root
         this.loading.dismiss();
         this.successToast();
         this.setNotificationToken();
@@ -100,7 +98,6 @@ export class LoginPage {
     push.on('registration', (data) => {
       let tokenId = data.registrationId;
       this.configuration.tokenUpdate(tokenId).subscribe((res) => {
-        this.errorToast("Success notificaiton");
       }, (err) => {
         this.errorToast("Failed to update notification setting... try again later");
       });
@@ -108,9 +105,7 @@ export class LoginPage {
 
     push.on('notification', (data) => {
       let self = this;
-      //if user using app and push notification comes
       if (data.additionalData.foreground) {
-        // if application open, show popup
         let confirmAlert = this.alertCtrl.create({
           title: 'New Notification',
           message: data.message,

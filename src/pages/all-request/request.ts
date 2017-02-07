@@ -32,7 +32,6 @@ export class AllRequestPage {
     this.cs.showLoader();
     this.requestService.getRequests(this.currentPage).subscribe(res => {
       if (res.status === 204) {
-        console.log("No data");
         this.EmptyRequests = true;
       } else {
         this.EmptyRequests = false;

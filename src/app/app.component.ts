@@ -3,7 +3,7 @@ import { Platform, Nav, Events, AlertController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { AllRequestPage } from '../pages/all-request/request';
+import { Dashboard } from '../pages/dashboard/dashboard';
 
 import { Configuration } from '../service/app.constants';
 
@@ -38,7 +38,6 @@ export class MyApp {
 
   hasLoggedIn() {
     if (this.authService.isLoggedIn()) {
-      // this.rootPage = AllRequestPage;
     } else {
       this.rootPage = LoginPage;
     }
@@ -48,7 +47,7 @@ export class MyApp {
     this.events.subscribe('user:login', () => {
       console.log("Login successfully");
       this._configuration.setAccessToken();
-      this.nav.setRoot(AllRequestPage);
+      this.nav.setRoot(Dashboard);
     });
     this.events.subscribe('user:logout', () => {
       this.authService.resetLoginStatus();

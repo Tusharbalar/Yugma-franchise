@@ -7,6 +7,7 @@ import { CustomService } from '../../service/customService';
 import { newRequestModal } from './new/newRequestModal';
 import { ViewComponent } from './view/viewRequestModal';
 import { LoginPage } from '../login/login';
+import { Dashboard } from '../dashboard/dashboard';
 
 @Component({
   selector: 'all-request',
@@ -117,5 +118,9 @@ export class AllRequestPage {
       ]
     });
     actionSheet.present();
+  }
+
+  goToDashboard() {
+    this.navCtrl.setRoot(Dashboard);
   }
 }

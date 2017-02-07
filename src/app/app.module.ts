@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { closeRequestPage } from '../pages/close-request/request';
+import { Dashboard } from '../pages/dashboard/dashboard';
 import { AllRequestPage } from '../pages/all-request/request';
 import { LoginPage } from '../pages/login/login';
 
@@ -30,7 +30,7 @@ import { ForgotPasswordModal } from '../pages/login/forgotPassword';
 @NgModule({
   declarations: [
     MyApp,
-    closeRequestPage,
+    Dashboard,
     AllRequestPage,
     LoginPage,
     ListView,
@@ -52,7 +52,7 @@ import { ForgotPasswordModal } from '../pages/login/forgotPassword';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    closeRequestPage,
+    Dashboard,
     AllRequestPage,
     LoginPage,
     ListView,

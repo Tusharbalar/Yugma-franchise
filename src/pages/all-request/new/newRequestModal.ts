@@ -71,15 +71,19 @@ export class newRequestModal implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.nl.showLoader();
-    this.c.getCategories().subscribe((categories) => {
-      this.nl.hideLoader();
-      this.categories = categories.json();
-    }, (err) => {
-      this.nl.hideLoader();
-      this.nl.errMessage();
-      this.dismiss();
-    });
+    this.categories = JSON.parse(localStorage.getItem("categories"));
+    if (localStorage.getItem("categories") === null) {
+      this.nl.showLoader();
+      this.c.getCategories().subscribe((categories) => {
+        this.nl.hideLoader();
+        this.categories = categories.json();
+        localStorage.setItem("categories", JSON.stringify(this.categories));
+      }, (err) => {
+        this.nl.hideLoader();
+        this.nl.errMessage();
+        this.dismiss();
+      });
+    }
   }
 
   dismiss() {

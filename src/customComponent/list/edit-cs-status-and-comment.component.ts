@@ -10,7 +10,7 @@ import { RequestService } from '../../service/request.service';
   selector: 'nl-close-button',
   template: `
     <div style="height:100%;">
-      <button ion-button color="secondary" (click)="openCloseModal(complaint)" *ngIf="complaint.statusId != 6 && complaint.statusId != 4">
+      <button ion-button color="secondary" (click)="openCloseModal(complaint)" *ngIf="complaint.statusId != 6 && complaint.statusId != 4 && complaint.statusId != 7">
         <ion-icon name="md-close"></ion-icon>
         Close
       </button>
@@ -37,7 +37,7 @@ export class ListViewCloseButton extends EditComplaintStatusAndComment {
   selector: 'nl-reopen-button',
   template: `
     <div style="height:100%;">
-      <button ion-button color="danger" (click)="openReopenModal(complaint)" *ngIf="complaint.statusId === 4">
+      <button ion-button color="danger" (click)="openReopenModal(complaint)" *ngIf="complaint.statusId === 4 || complaint.statusId === 7">
         <ion-icon name="ios-thumbs-down"></ion-icon>
         Reopen
       </button>
@@ -64,7 +64,7 @@ export class ListViewReopenButton extends EditComplaintStatusAndComment  {
   selector: 'nl-satisfied-button',
   template: `
     <div style="height:100%;">
-      <button ion-button color="primary" (click)="openSatisfiedModal(complaint)" *ngIf="complaint.statusId === 4">
+      <button ion-button color="primary" (click)="openSatisfiedModal(complaint)" *ngIf="complaint.statusId === 4 || complaint.statusId === 7">
         <ion-icon name="ios-thumbs-up"></ion-icon>
         Satisfied
       </button>

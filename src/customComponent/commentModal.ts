@@ -79,7 +79,7 @@ export class CommentModal implements OnInit {
     this.commentForm = new FormGroup({
       comment: new FormControl('', [Validators.required])
     });
-    if (complaint.statusId === 4 || complaint.statusId === 6) {
+    if (complaint.statusId === 4 || complaint.statusId === 6 || complaint.statusId === 7) {
       this.renderer.setElementStyle(this.el.nativeElement, "visibility", 'hidden');
       this.showToastMessage();
     }

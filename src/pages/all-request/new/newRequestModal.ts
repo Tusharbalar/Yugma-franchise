@@ -57,7 +57,7 @@ export class newRequestModal implements OnInit {
 
   ngOnInit() {
     this.loadForm();
-    this.nl.showToast("All fields are mandatory to create a new complaint");
+    this.nl.showToast("All fields are mandatory to create a new request");
   }
 
   loadForm() {

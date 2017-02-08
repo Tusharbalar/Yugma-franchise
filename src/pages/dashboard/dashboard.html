@@ -6,7 +6,72 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Dashboard</h2>
-  <button ion-button (click)="goToAllRequest()">All Request</button>
+<ion-content class="csGrayBackground">
+  <div class="appWelcome" style="background:white;width:100%;height:150px">
+    <ion-grid>
+      <ion-row>
+        <!--<ion-col width-25 style="background:red">
+
+        </ion-col>
+        <ion-col width-75 >
+
+        </ion-col>-->
+        <img src="http://www.srgs.co.in/wp-content/themes/kidszone/images/logo.png" class="csCenter" style="height:125px; width:100%;margin-top:10px"/> 
+  
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-grid>
+  <ion-row style="height: 120px;">
+    <ion-col>
+      <button ion-button (click)="goToAllRequest()" full style="height: 100%;width:100%;margin: auto;">
+        <ion-grid>
+        <ion-row>
+          <ion-icon name="paper" class="csCenter" style="font-size:60px"></ion-icon>
+        </ion-row>
+        <ion-row>
+          <b class="csCenter">View Requests</b>
+        </ion-row>
+        </ion-grid>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button (click)="newRequest()" ion-button full style="height: 100%;width:100%;margin: auto;">
+        <ion-grid>
+        <ion-row>
+          <ion-icon name="create" class="csCenter" style="font-size:60px"></ion-icon>
+        </ion-row>
+        <ion-row>
+          <b class="csCenter">Make a Request</b>
+        </ion-row>
+        </ion-grid>
+      </button>
+    </ion-col>   
+  </ion-row>
+  <!--<ion-row style="height: 80px;">
+    <ion-col>
+      <button ion-button full icon-left item-right style="height: 100%;width:100%;margin: auto;">
+          <ion-icon name="log-out" style="font-size:50px"></ion-icon>
+          <b>LOGOUT</b>
+      </button>
+    </ion-col>  
+  </ion-row>-->
+</ion-grid>
+<ion-card>
+  <img src="http://webdesignertricks.com/wp-content/uploads/2015/12/7.-chartjs.png"/>
+  <ion-card-content>
+    <ion-card-title>
+      Chart Title
+      </ion-card-title>
+    <p>
+      We can put this type of chart reprenting status of requests.
+    </p>
+  </ion-card-content>
+</ion-card>
 </ion-content>
+<ion-footer color="danger">
+      <button ion-button color="danger" full icon-left item-right >
+          <ion-icon name="log-out" style="font-size:50px"></ion-icon>
+          <b>LOGOUT</b>
+      </button>
+</ion-footer>

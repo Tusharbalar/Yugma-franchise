@@ -58,6 +58,8 @@ export class RequestService {
   }
 
   public getCategories() {
+    this.serverUrl = this._configuration.getRequestUrl();
+    this.header = this._configuration.getHeader();
     return this._http.get(this.serverUrl + "/category", this.header).map((res: Response) => {
       return res;
     }).catch((error: any) => Observable.throw(error || 'server error'));

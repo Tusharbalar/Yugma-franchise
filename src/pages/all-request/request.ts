@@ -48,7 +48,6 @@ export class AllRequestPage {
   newRequest(): void {
     let newRequest = this.modalCtrl.create(newRequestModal);
     newRequest.onDidDismiss((newRequest) => {
-      console.log("DSa", newRequest)
       if (!newRequest) { return; }
       if (!this.allRequests) { this.allRequests = []; }
       this.EmptyRequests = false;
@@ -94,30 +93,6 @@ export class AllRequestPage {
       });
       refresher.complete();
     }, 1000);
-  }
-
-  logout() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Are you sure you want to logout ?',
-      buttons: [
-        {
-          text: 'Submit',
-          icon: 'ios-paper-outline',
-          handler: () => {
-            localStorage.clear();
-            this.navCtrl.setRoot(LoginPage);
-          }
-        },{
-          text: 'Cancel',
-          icon: 'md-close',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
   }
 
   goToDashboard() {

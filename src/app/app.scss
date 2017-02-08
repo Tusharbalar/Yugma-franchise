@@ -100,7 +100,7 @@ $inherit : inherit;
     background: $csBackgroundColor;
 }
 .csParagraph {
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     white-space: pre-line;
     margin-top: 5px;
 }

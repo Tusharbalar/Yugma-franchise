@@ -21,7 +21,7 @@
         <hr [style.border-top]="'1px' + ' groove ' + complaint.statusColor">
         <span [style.color]="complaint.statusColor">Title</span>
       </div>
-      <h2 class="csParagraph">
+      <h2 class="csFont">
         {{complaint.title}}
       </h2>
     </ion-item>
@@ -31,7 +31,7 @@
         <span [style.color]="complaint.statusColor">Against</span>
         <span [style.color]="complaint.statusColor">Description</span>
       </div>
-      <h2 class="csParagraph">
+      <h2 class="csFont">
         {{complaint.description}}
       </h2>
     </ion-item>
@@ -40,97 +40,90 @@
         <hr [style.border-top]="'1px' + ' groove ' + complaint.statusColor">
         <span [style.color]="complaint.statusColor">Root Cause Analysis</span>
       </div>
-      <h2 class="csParagraph">
+      <h2 class="csFont">
         {{complaint.rca}}
       </h2>
     </ion-item>
     <ion-item *ngIf="complaint.closedOn">
       <ion-note item-left>
         <span [style.color]="complaint.statusColor">
-            <b>Created at</b>
+            <b class="csFont">Created at</b>
           </span>
         <br>
-        <span style="color:black">
+        <span style="color:black" class="csFont">
             {{complaint.createdAt  | amDateFormat: 'LL'}}
           </span>
       </ion-note>
       <ion-note item-right *ngIf="complaint.closedOn">
-        <span [style.color]="complaint.statusColor">
+        <span class="csFont" [style.color]="complaint.statusColor">
           <b>Closed on</b>
           </span>
         <br>
-        <span style="color:black">
+        <span class="csFont" style="color:black">
           {{complaint.closedOn  | amDateFormat: 'LL'}}
           </span>
       </ion-note>
     </ion-item>
   </ion-card>
   <ion-card>
-    <ion-item *ngIf="complaint.closedOn==null" class="csTransparent csBottom-card">
+    <ion-item *ngIf="complaint.createdAt" class="csTransparent csBottom-card">
       <ion-icon name="clock" [style.color]="complaint.statusColor"></ion-icon>
-      <span [style.color]="complaint.statusColor" class="csBoldFont">Created at</span>
-      <span item-right icon-left>
+      <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Created at</span>
+      <span class="csFont" item-right icon-left>
         <h5>{{complaint.createdAt  | amDateFormat: 'LL'}}</h5>
       </span>
     </ion-item>
     <ion-item *ngIf="complaint.dueDate" class="csTransparent csBottom-card">
       <ion-icon name="timer" [style.color]="complaint.statusColor"></ion-icon>
-      <span [style.color]="complaint.statusColor" class="csBoldFont">Due Date</span>
-      <span item-right icon-left>
+      <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Due Date</span>
+      <span class="csFont" item-right icon-left>
         <h5>{{complaint.dueDate  | amDateFormat: 'LL'}}</h5>
       </span>
     </ion-item>
+      <ion-item *ngIf="complaint.revisedDueDate" class="csTransparent csBottom-card">
+        <ion-icon name="timer" [style.color]="complaint.statusColor"></ion-icon>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Revised Due Date</span>
+        <span class="csFont" item-right icon-left>
+          <h5>{{complaint.revisedDueDate | amDateFormat: 'LL'}}</h5>
+        </span>
+      </ion-item>   
   </ion-card>
   <ion-list>
     <ion-card>
-      <ion-item *ngIf="complaint.dueDate" class="csTransparent csBottom-card">
-        <ion-icon name="body" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Due Date</span>
-        <span item-right icon-left>
-          <h5>{{complaint.dueDate | amDateFormat: 'LL'}}</h5>
-        </span>
-      </ion-item>
       <ion-item *ngIf="complaint.franchiseName" class="csTransparent csBottom-card">
         <ion-icon name="body" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Franchise Name</span>
-        <span item-right icon-left>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Franchise Name</span>
+        <span class="csFont" item-right icon-left>
           <h5>{{complaint.franchiseName}}</h5>
         </span>
       </ion-item>
     </ion-card>
     <ion-card>
-      <ion-item *ngIf="complaint.closedOn==null" class="csTransparent csBottom-card">
-        <ion-icon name="body" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Created at</span>
-        <span item-right icon-left>
-          <h5>{{complaint.createdAt  | amDateFormat: 'LL'}}</h5>
-        </span>
-      </ion-item>
       <ion-item *ngIf="complaint.againstCategoryName && !complaint.againstEmployeeName" class="csTransparent">
         <ion-icon name="person" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Against</span>
-        <span item-right icon-left>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Against</span>
+        <span class="csFont" item-right icon-left>
           <h5>{{complaint.againstCategoryName}}</h5>
         </span>
       </ion-item>
       <ion-item *ngIf="complaint.assignedEmployeeName" class="csTransparent">
         <ion-icon name="people" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Assigned To</span>
-        <span item-right icon-left>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Assigned To</span>
+        <span class="csFont" item-right icon-left>
           <h5>{{complaint.assignedEmployeeName}}</h5>
         </span>
       </ion-item>
       <ion-item *ngIf="complaint.acknowledgementName" class="csTransparent">
         <ion-icon name="bonfire" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Acknowledgement</span>
-        <span item-right icon-left>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Acknowledgement</span>
+        <span class="csFont" item-right icon-left>
           <h5>{{complaint.acknowledgementName}}</h5>
         </span>
       </ion-item>
       <ion-item *ngIf="complaint.priorityName" class="csTransparent">
         <ion-icon name="pulse" [style.color]="complaint.statusColor"></ion-icon>
-        <span [style.color]="complaint.statusColor" class="csBoldFont">Priority</span>
-        <span item-right icon-left>
+        <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Priority</span>
+        <span class="csFont" item-right icon-left>
           <h5>{{complaint.priorityName}}</h5>
         </span>
       </ion-item>
@@ -138,24 +131,24 @@
   </ion-list>
 </ion-content>
 <ion-footer *ngIf="complaint.statusId === 4 || complaint.statusId != 6">
-  <ion-toolbar color="light">
+  <ion-toolbar color="primary">
     <ion-row>
       <ion-col *ngIf="complaint.statusId === 4">
         <button (click)="openReopenModal(complaint)" ion-button icon-left clear small class="csCenter">
-            <ion-icon name="ios-thumbs-down"></ion-icon>
-            <div>Reopen</div>
+            <ion-icon name="ios-thumbs-down" class="csWhiteText csBold"></ion-icon>
+            <div class="csWhiteText csBold">Reopen</div>
           </button>
       </ion-col>
       <ion-col *ngIf="complaint.statusId === 4">
         <button (click)="openSatisfiedModal(complaint)" ion-button icon-left clear small class="csCenter">
-            <ion-icon name="ios-thumbs-up"></ion-icon>
-            <div>Satisfied</div>
+            <ion-icon name="ios-thumbs-up" class="csWhiteText csBold"></ion-icon>
+            <div class="csWhiteText csBold">Satisfied</div>
           </button>
       </ion-col>
       <ion-col *ngIf="complaint.statusId != 6 && complaint.statusId != 4">
         <button (click)="openCloseModal(complaint)" ion-button icon-left clear small class="csCenter">
-            <ion-icon name="md-close"></ion-icon>
-            <div>Close</div>
+            <ion-icon name="md-hammer" class="csWhiteText csBold"></ion-icon>
+            <div class="csWhiteText csBold">Close Request</div>
           </button>
       </ion-col>
     </ion-row>

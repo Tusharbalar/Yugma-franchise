@@ -7,7 +7,7 @@ import { Events, ViewController } from 'ionic-angular';
     <ion-toolbar color="primary">
       <ion-buttons start>
         <button ion-button color="light" class="navBtnRight" (click)="dismiss()">
-          <span color="light" showWhen="ios"><ion-icon name="close-circle"></ion-icon></span>
+          <span color="light" showWhen="ios">Cancel</span>
           <ion-icon color="light" class="csBigIcon" name="md-close" showWhen="android,windows"></ion-icon>
         </button>
       </ion-buttons>

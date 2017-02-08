@@ -31,11 +31,11 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-list>
-    <ion-item *ngIf="EmptyRequests">
-      <h3> NO RECORD FOUND </h3>
-    </ion-item>
-  </ion-list>
+  <ion-list class="no-comment" *ngIf="EmptyRequests">
+      <img src="../../assets/svg/empty.svg" />
+      <span>NO RECORD FOUND</span>
+  </ion-list> 
+
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

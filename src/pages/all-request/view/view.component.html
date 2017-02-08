@@ -3,7 +3,7 @@
     <ion-buttons start>
       <button ion-button color="light" class="navBtnRight" (click)="dismiss()">
         <span color="light" showWhen="ios">Cancel</span>
-        <ion-icon color="light" name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon color="light" name="md-close" class="csBigIcon" showWhen="android,windows"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>
@@ -66,7 +66,7 @@
     </ion-item>
   </ion-card>
   <ion-card>
-    <ion-item *ngIf="complaint.createdAt" class="csTransparent csBottom-card">
+    <ion-item *ngIf="complaint.closedOn==null" class="csTransparent csBottom-card">
       <ion-icon name="clock" [style.color]="complaint.statusColor"></ion-icon>
       <span [style.color]="complaint.statusColor" class="csBoldFont csFont">Created at</span>
       <span class="csFont" item-right icon-left>
